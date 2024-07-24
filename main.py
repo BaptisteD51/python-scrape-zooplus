@@ -4,6 +4,7 @@ import requests
 
 from categories import Categories
 from articles import Articles
+from csvwrite import Csv
 
 magazine = "https://www.zooplus.no/magasin"
 
@@ -12,6 +13,7 @@ cat_urls = Categories(magazine).get_urls()
 all_pairs = []
 
 for cat_url in cat_urls:
-    all_pairs.extend(Articles(cat_url).urls_ids)
+    articles = Articles()
+    all_pairs.extend(articles.get_urls_ids(cat_url))
 
-print(all_pairs)
+Csv(all_pairs)

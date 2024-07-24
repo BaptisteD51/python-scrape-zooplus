@@ -6,6 +6,7 @@ class Categories:
     urls = []
 
     def __init__(self, url):
+        self.urls = []
         resp = requests.get(url)
         source = resp.text
         

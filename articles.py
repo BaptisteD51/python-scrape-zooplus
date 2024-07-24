@@ -3,9 +3,9 @@ import re
 import requests
 
 class Articles:
-    urls_ids = []
 
-    def __init__(self, url):
+    def get_urls_ids(self, url):
+        urls_ids = []
         resp = requests.get(url)
         source = resp.text
         pattern = url + "/[a-zA-Z-]+"
@@ -17,9 +17,9 @@ class Articles:
             if id != None:
                 url_id = {"url":url,"id":id}
                 print(url_id)
-                self.urls_ids.append(url_id)
+                urls_ids.append(url_id)
+        return urls_ids
         
-    
     
 
     def get_post_id(self, url):

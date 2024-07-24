@@ -26,4 +26,10 @@ def getArticlesUrls(url):
     resp = requests.get(url)
     source = resp.text
     pattern = 'r' + url + '/[a-zA-Z-]+'
-    
+
+
+url = "https://www.zooplus.be/magazine/chat/alimentation-du-chat"
+url2 = "https://www.zooplus.be/magazine/chat/alimentation-du-chat/croquettes-chat"
+regex = r"https://www.zooplus.be/magazine/chat/alimentation-du-chat/[a-zA-Z-]+"
+match = re.search(regex, url2)
+print(match[0])

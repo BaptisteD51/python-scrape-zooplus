@@ -6,7 +6,7 @@ from categories import Categories
 from articles import Articles
 from csvwrite import Csv
 
-magazine = "https://www.zooplus.no/magasin"
+magazine = input("Enter the magazine url:")
 
 cat_urls = Categories(magazine).get_urls()
 

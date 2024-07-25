@@ -14,8 +14,9 @@ class Articles:
         
         for url in post_urls:
             id = self.get_post_id(url)
+            title = self.get_post_title(url)
             if id != None:
-                url_id = {"url":url,"id":id}
+                url_id = {"url":url,"id":id,"title":title}
                 print(url_id)
                 urls_ids.append(url_id)
         return urls_ids
@@ -29,5 +30,18 @@ class Articles:
         match = re.search(regex, source)
         if match != None:
             return match[1]
+        else:
+            return None
+        
+
+    def get_post_title(self, url):
+        resp = requests.get(url)
+        source = resp.text
+        regex = r"<h1 class=\"page-title\">\n?(.*)</h1>"
+        match = re.search(regex, source)
+        if match != None:
+            title = match[1]
+            title = title.replace("\t","")
+            return title
         else:
             return None

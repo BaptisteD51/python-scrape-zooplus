@@ -1,4 +1,5 @@
 import re
+import html
 
 import requests
 
@@ -42,6 +43,7 @@ class Articles:
         if match != None:
             title = match[1]
             title = title.replace("\t","")
+            title = html.unescape(title)
             return title
         else:
             return None

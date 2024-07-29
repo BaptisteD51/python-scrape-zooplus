@@ -39,11 +39,13 @@ class Articles:
         resp = requests.get(url)
         source = resp.text
         regex = r"<h1 class=\"page-title\">\n?(.*)</h1>"
+        regimg = r"<img.*>"
         match = re.search(regex, source)
         if match != None:
             title = match[1]
             title = title.replace("\t","")
             title = html.unescape(title)
+            title = re.sub(regimg, "", title)
             return title
         else:
             return None

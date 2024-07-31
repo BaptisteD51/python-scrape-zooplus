@@ -12,7 +12,7 @@ class Csv:
         for pair in pairs:
             print(pair["url"])
             print(pair["id"])
-            f.write(pair["url"]+","+pair["id"]+",\""+pair["title"]+"\"\n")
+            f.write(pair["id"]+","+pair["url"]+",\""+pair["title"]+"\"\n")
 
 
 # Csv(test)

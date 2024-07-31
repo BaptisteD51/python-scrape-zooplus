@@ -2,11 +2,14 @@ import re
 
 import requests
 
-from categories import Categories
-from articles import Articles
-from csvwrite import Csv
+from front.categories import Categories
+from front.articles import Articles
+from front.csvwrite import Csv
+from back.scrape_back import scrape_back
 
 magazine = input("Enter the magazine url:")
+
+scrape_back()
 
 cat_urls = Categories(magazine).get_urls()
 

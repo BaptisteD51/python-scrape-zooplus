@@ -8,7 +8,7 @@ test = [
 
 class Csv:
     def __init__(self,pairs):
-        f = open("results.csv", 'a')
+        f = open("results-front.csv", 'a', encoding="utf-8")
         for pair in pairs:
             print(pair["url"])
             print(pair["id"])
